@@ -15,10 +15,11 @@ return new class extends Migration
     {
        Schema::create('informacoesprestacaoservicos', function (Blueprint $table) {
         $table->id();
+        $table->integer('idempresa');
         $table->integer('cnae');
         $table->integer('listaservico');
         $table->float('aliquota');
-        $table->foreign('id')->references('id')->on('informacoes');
+        $table->foreign('idempresa')->references('id')->on('informacoes');
     });
     }
 
