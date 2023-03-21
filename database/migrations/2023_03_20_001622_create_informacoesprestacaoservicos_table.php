@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-       Schema::create('informacoesprestacaoservicos', function (Blueprint $table) {
-        $table->id();
-        $table->integer('idempresa');
-        $table->integer('cnae');
-        $table->integer('listaservico');
-        $table->float('aliquota');
-        $table->foreign('idempresa')->references('id')->on('informacoes');
-    });
+        Schema::create('informacoesprestacaoservicos', function (Blueprint $table) {
+            $table->id();
+            //Precisa ser unsignedBigInteger para chave estrangeira
+            $table->unsignedBigInteger('idempresa');
+            $table->integer('cnae');
+            $table->integer('listaservico');
+            $table->float('aliquota');
+            $table->foreign('idempresa')->references('id')->on('informacoes');
+        });
     }
 
     /**

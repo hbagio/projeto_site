@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\GerenciamentoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\InformacoesprestacaoservicoController;
 use GuzzleHttp\Middleware;
 
 rotasMenuHome();
@@ -131,6 +132,8 @@ function rotasEmpresa()
     Route::get('/events/dadosEmpresa', [GerenciamentoController::class, 'dadosEmpresa'])->name('gerenciamento.empresa');
     Route::post('/events/dadosEmpresa/store', [GerenciamentoController::class, 'store'])->name('gerenciamento.empresa.insere');
     Route::post('/events/dadosEmpresa/update', [GerenciamentoController::class, 'update'])->name('gerenciamento.empresa.altera');
+    Route::get('/events/dadosEmpresaServico', [InformacoesprestacaoservicoController::class, 'showDadosEmpresaServico'])->name('gerenciamento.empresa.servico');
+    Route::get('/events/inserirDadosEmpresaServico', [InformacoesprestacaoservicoController::class, 'showDadosEmpresaServico'])->name('gerenciamento.empresa.servico');
 }
 
 /**

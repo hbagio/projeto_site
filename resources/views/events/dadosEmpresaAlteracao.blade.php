@@ -55,7 +55,9 @@
                 </div>
             </div><br>
             <input type="submit" class="card_acao col_10" value="Salvar Alteração"><br>
+            <a href="/events/dadosEmpresaServico" class="card_acao muted col_4">Informações de Serviço</a><br>
             <a href="/events/gerenciamento" class="card_acao muted col_4">Voltar</a>
+           
         </form>
     </div>
 </section>
