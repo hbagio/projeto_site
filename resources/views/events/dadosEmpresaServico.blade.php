@@ -11,9 +11,7 @@
         </div>
 
         <div class="card flex_col">
-
             <br>
-
             <table class="lista_consulta">
                 <tr>
                     <th class="lista_consulta_cabecalho">Cnae</th>
