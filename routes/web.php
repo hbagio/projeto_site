@@ -133,7 +133,9 @@ function rotasEmpresa()
     Route::post('/events/dadosEmpresa/store', [GerenciamentoController::class, 'store'])->name('gerenciamento.empresa.insere');
     Route::post('/events/dadosEmpresa/update', [GerenciamentoController::class, 'update'])->name('gerenciamento.empresa.altera');
     Route::get('/events/dadosEmpresaServico', [InformacoesprestacaoservicoController::class, 'showDadosEmpresaServico'])->name('gerenciamento.empresa.servico');
-    Route::get('/events/inserirDadosEmpresaServico', [InformacoesprestacaoservicoController::class, 'showDadosEmpresaServico'])->name('gerenciamento.empresa.servico');
+    Route::get('/events/cadastrarDadosEmpresaServico', [InformacoesprestacaoservicoController::class, 'cadastrarDadosEmpresaServico'])->name('gerenciamento.empresa.servico.cadastrar');
+    Route::post('/events/cadastrarDadosEmpresaServico/store', [InformacoesprestacaoservicoController::class, 'store'])->name('gerenciamento.empresa.servico.insere');
+
 }
 
 /**

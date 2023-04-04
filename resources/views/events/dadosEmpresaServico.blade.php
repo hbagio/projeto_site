@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="titulo_grande cor_escuro_50">Dados de Prestação de Serviço</h1><br>
         <div class="flex_row col_12">
-            <a class="card_acao col_6" href="/events/inserirDadosEmpresaServico">Inserir</a>
+            <a class="card_acao col_6" href="/events/cadastrarDadosEmpresaServico">Cadastrar </a>
             <a class="card_acao muted col_6"  href="/events/dadosEmpresa" style="margin-right:5px">Voltar</a>
 
         </div>
