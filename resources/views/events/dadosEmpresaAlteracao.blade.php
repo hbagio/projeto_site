@@ -9,13 +9,19 @@
             <div class="container_campo col_10">
                 <label class="campo_label col_4">ID Empresa</label>
                 <div class="campo">
-                    <input type="number" name="id" value="{{ $dadosEmpresa->id }}" readonly>
+                    <input type="number" name="id" value="{{ $dadosEmpresa->id }}" readonly >
                 </div>
             </div><br>
             <div class="container_campo col_10">
                 <label class="campo_label col_4">CNPJ</label>
                 <div class="campo">
                     <input type="text" name="cnpj" value="{{ $dadosEmpresa->cnpj }}" placeholder="Número do Cnpj" required>
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Razão Social</label>
+                <div class="campo">
+                    <input type="text" name="nomeempresa" id= 'nomeempresa' value= "{{ $dadosEmpresa->nomeempresa}}" placeholder="Razão Social da empresa" required>
                 </div>
             </div><br>
             <div class="container_campo col_10">
@@ -55,7 +61,7 @@
                 </div>
             </div><br>
             <input type="submit" class="card_acao col_10" value="Salvar Alteração"><br>
-            <a href="/events/dadosEmpresaServico" class="card_acao muted col_4">Informações de Serviço</a><br>
+            <a href="/events/dadosEmpresaServico/{{ $dadosEmpresa->id }}" class="card_acao muted col_4">Informações de Serviço</a><br>
             <a href="/events/gerenciamento" class="card_acao muted col_4">Voltar</a>
            
         </form>

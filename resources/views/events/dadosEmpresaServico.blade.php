@@ -4,12 +4,26 @@
 <section class="galeria">
     <div class="container">
         <h1 class="titulo_grande cor_escuro_50">Dados de Prestação de Serviço</h1><br>
+      
+
+        @csrf
+        <div class="container_campo col_12">
+            <label class="campo_label col_4">CNPJ</label>
+            <div class="campo">
+                <input type="text" name="cnpj" value="{{ $dadosEmpresa->cnpj }}" placeholder="Número do Cnpj" required readonly>
+            </div>
+        </div><br>
+        <div class="container_campo col_12">
+            <label class="campo_label col_4">Razão Social</label>
+            <div class="campo">
+                <input type="text" name="nomeempresa" id= 'nomeempresa' value= "{{ $dadosEmpresa->nomeempresa}}" placeholder="Razão Social da empresa" required readonly>
+            </div>
+        </div><br>
         <div class="flex_row col_12">
-            <a class="card_acao col_6" href="/events/cadastrarDadosEmpresaServico">Cadastrar </a>
-            <a class="card_acao muted col_6"  href="/events/dadosEmpresa" style="margin-right:5px">Voltar</a>
+            <a  class="card_acao col_6" href="/events/cadastrarDadosEmpresaServico">Cadastrar </a> 
+            <a class="card_acao muted col_6"  href="/events/dadosEmpresa" style="margin-left:5px">Voltar</a>
 
         </div>
-
         <div class="card flex_col">
             <br>
             <table class="lista_consulta">

@@ -4,7 +4,7 @@
 <section class="galeria">
     <div class="container">
         <h1 class="titulo_grande cor_escuro_50">Dados de Prestação de Serviço</h1><br>
-        <form class="card flex_col col_12" action="/events/store" method="POST" enctype="multipart/form-data">
+        <form class="card flex_col col_12" action="/events/cadastrarDadosEmpresaServico/store" method="POST" enctype="multipart/form-data">
             {{-- Diretiva necessário por segurança, senão não deixar fazer o request --}}
             @csrf
 

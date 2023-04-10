@@ -13,6 +13,12 @@
                 </div>
             </div><br>
             <div class="container_campo col_10">
+                <label class="campo_label col_4">Razão Social</label>
+                <div class="campo">
+                    <input type="text" name="nomeempresa" id= 'nomeempresa' placeholder="Razão Social da empresa" required>
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
                 <label class="campo_label col_4"><i class="fa-brands fa-instagram"></i> Instagram</label>
                 <div class="campo">
                     <input type="text" name="instagram" placeholder="endereço perfil do instagram" required>

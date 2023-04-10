@@ -48,6 +48,7 @@ class GerenciamentoController extends Controller
         $dadosEmpresa = new Informacao;
 
         $dadosEmpresa->cnpj = $request->cnpj;
+        $dadosEmpresa->nomeempresa = $request->nomeempresa;
         $dadosEmpresa->instagram = $request->instagram;
         $dadosEmpresa->facebook = $request->facebook;
         $dadosEmpresa->telefone = $request->telefone;
@@ -65,6 +66,7 @@ class GerenciamentoController extends Controller
         $dadosEmpresa = Informacao::findOrFail($request->id);
 
         $dadosEmpresa->cnpj      = $request->cnpj;
+        $dadosEmpresa->nomeempresa = $request->nomeempresa;
         $dadosEmpresa->instagram = $request->instagram;
         $dadosEmpresa->facebook = $request->facebook;
         $dadosEmpresa->telefone = $request->telefone;
@@ -74,7 +76,7 @@ class GerenciamentoController extends Controller
 
         $dadosEmpresa->save();
 
-        return redirect('/events/gerenciamento')->with('msg', 'Dados da Empresa foram alterados!');
+        return redirect('/events/dadosEmpresa')->with('msg', 'Dados da Empresa foram alterados!');
     }
 
 
