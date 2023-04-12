@@ -49,7 +49,6 @@
             </div>
             <br>
             <input type="submit" class="card_acao col_10" value="Cadastrar"><br>
-            <a href="/events/dadosEmpresaServico/{{ $dadosEmpresa->id }}" class="card_acao muted col_5">Voltar</a>
         </form>
     </div>
 </section>

@@ -122,6 +122,4 @@ class GerenciamentoController extends Controller
         $dadosEmpresa =  \DB::select('select *  from informacoes where id = (select MAX(id) from informacoes)');
         return $dadosEmpresa[0];
     }
-
-
 }

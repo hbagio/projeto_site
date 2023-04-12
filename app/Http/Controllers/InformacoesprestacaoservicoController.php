@@ -11,15 +11,15 @@ class InformacoesprestacaoservicoController extends Controller
 {
     public function showDadosEmpresaServico($idempresa)
     {
-       $temRegistros = \DB::select('select count(1) as total from informacoesprestacaoservicos');
+        $temRegistros = \DB::select('select count(1) as total from informacoesprestacaoservicos');
 
         $dadosEmpresaPrestacaoServico = \DB::table('informacoesprestacaoservicos')
             ->join('informacoes', 'informacoes.id', '=', 'informacoesprestacaoservicos.idempresa')
             ->where('informacoesprestacaoservicos.idempresa', '=', [$idempresa])
             ->select('informacoesprestacaoservicos.*', 'informacoes.nomeempresa', 'informacoes.cnpj')
             ->get();
-        
-        if ( $temRegistros[0]->total > 0) {
+
+        if ($temRegistros[0]->total > 0) {
 
             return view('/events/dadosEmpresaServico', ['dadosEmpresaPrestacaoServico' => $dadosEmpresaPrestacaoServico]);
         } else {
@@ -46,9 +46,7 @@ class InformacoesprestacaoservicoController extends Controller
         $dadosEmpresaPrestacaoServico->idempresa = $request->idempresa;
         $dadosEmpresaPrestacaoServico->save();
 
-        $dadosEmpresa = Informacao::findOrFail($request->idempresa);
-        //$this->showDadosEmpresaServico($request->idempresa);
-        return view('/events/cadastrarDadosEmpresaServico', ['dadosEmpresa' => $dadosEmpresa]);
+        return redirect()->route('gerenciamento.empresa.servico', [$request->idempresa]);
     }
 
     public function destroy($id, $idempresa)
@@ -56,10 +54,6 @@ class InformacoesprestacaoservicoController extends Controller
         $informacoesprestacaoservico = informacoesprestacaoservico::findOrFail($id)->delete();
 
         return redirect()->back();
-        //return to_route('gerenciamento.empresa.servico', ['id' == $idempresa]);
-
-
-
 
     }
 }
