@@ -9,32 +9,56 @@ use App\Models\Informacao;
 
 class InformacoesprestacaoservicoController extends Controller
 {
-    public function showDadosEmpresaServico($id){
-      
+    public function showDadosEmpresaServico($idempresa)
+    {
+       $temRegistros = \DB::select('select count(1) as total from informacoesprestacaoservicos');
+
         $dadosEmpresaPrestacaoServico = \DB::table('informacoesprestacaoservicos')
-        ->select('*')
-        ->join('informacoes','informacoes.id','=' ,'informacoesprestacaoservicos.idempresa')
-        ->where('informacoesprestacaoservicos.idempresa','=', [$id])
-        ->get();
+            ->join('informacoes', 'informacoes.id', '=', 'informacoesprestacaoservicos.idempresa')
+            ->where('informacoesprestacaoservicos.idempresa', '=', [$idempresa])
+            ->select('informacoesprestacaoservicos.*', 'informacoes.nomeempresa', 'informacoes.cnpj')
+            ->get();
+        
+        if ( $temRegistros[0]->total > 0) {
 
-        $dadosEmpresa = Informacao::findOrFail($id);
-
-        return view('/events/dadosEmpresaServico',['dadosEmpresaPrestacaoServico' => $dadosEmpresaPrestacaoServico , 'dadosEmpresa' => $dadosEmpresa]);
+            return view('/events/dadosEmpresaServico', ['dadosEmpresaPrestacaoServico' => $dadosEmpresaPrestacaoServico]);
+        } else {
+            $dadosEmpresa = Informacao::findOrFail($idempresa);
+            return view('/events/cadastrarDadosEmpresaServico', ['dadosEmpresa' => $dadosEmpresa]);
+        }
     }
 
-    public function cadastrarDadosEmpresaServico(){
-        return view('/events/cadastrarDadosEmpresaServico');
+    public function cadastrarDadosEmpresaServico($idempresa)
+    {
+
+        $dadosEmpresa = Informacao::findOrFail($idempresa);
+        return view('/events/cadastrarDadosEmpresaServico', ['dadosEmpresa' => $dadosEmpresa]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
-        $dadosEmpresaPrestacaoServico = New informacoesprestacaoservico();
+        $dadosEmpresaPrestacaoServico = new informacoesprestacaoservico;
 
         $dadosEmpresaPrestacaoServico->cnae = $request->cnae;
         $dadosEmpresaPrestacaoServico->listaservico = $request->listaservico;
         $dadosEmpresaPrestacaoServico->aliquota = $request->aliquota;
-
+        $dadosEmpresaPrestacaoServico->idempresa = $request->idempresa;
         $dadosEmpresaPrestacaoServico->save();
+
+        $dadosEmpresa = Informacao::findOrFail($request->idempresa);
+        //$this->showDadosEmpresaServico($request->idempresa);
+        return view('/events/cadastrarDadosEmpresaServico', ['dadosEmpresa' => $dadosEmpresa]);
+    }
+
+    public function destroy($id, $idempresa)
+    {
+        $informacoesprestacaoservico = informacoesprestacaoservico::findOrFail($id)->delete();
+
+        return redirect()->back();
+        //return to_route('gerenciamento.empresa.servico', ['id' == $idempresa]);
+
+
 
 
     }
