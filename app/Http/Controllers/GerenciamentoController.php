@@ -55,6 +55,12 @@ class GerenciamentoController extends Controller
         $dadosEmpresa->whatsapp = $request->whatsapp;
         $dadosEmpresa->email = $request->email;
         $dadosEmpresa->endereco = $request->endereco;
+        $dadosEmpresa->complemento = $request->complemento;
+        $dadosEmpresa->numero = $request->numero;
+        $dadosEmpresa->bairro = $request->bairro;
+        $dadosEmpresa->cidade = $request->cidade;
+        $dadosEmpresa->cep = $request->cep;
+        $dadosEmpresa->estado = $request->estado;
 
         $dadosEmpresa->save();
 
@@ -73,6 +79,12 @@ class GerenciamentoController extends Controller
         $dadosEmpresa->whatsapp = $request->whatsapp;
         $dadosEmpresa->email = $request->email;
         $dadosEmpresa->endereco = $request->endereco;
+        $dadosEmpresa->complemento = $request->complemento;
+        $dadosEmpresa->numero = $request->numero;
+        $dadosEmpresa->bairro = $request->bairro;
+        $dadosEmpresa->cidade = $request->cidade;
+        $dadosEmpresa->cep = $request->cep;
+        $dadosEmpresa->estado = $request->estado;
 
         $dadosEmpresa->save();
 

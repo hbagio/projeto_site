@@ -55,11 +55,50 @@
                 </div>
             </div><br>
             <div class="container_campo col_10">
-                <label class="campo_label col_4">Endereço Completo</label>
+                <label class="campo_label col_4">Logradouro</label>
                 <div class="campo">
                     <input type="text" name="endereco" value="{{ $dadosEmpresa->endereco }}" required>
                 </div>
             </div><br>
+
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Compemento</label>
+                <div class="campo">
+                    <input type="text" name="complemento" value="{{ $dadosEmpresa->complemento }}" >
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Número</label>
+                <div class="campo">
+                    <input type="text" name="numero" min="0" max="99999999" value="{{ $dadosEmpresa->numero }}" >
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Bairro</label>
+                <div class="campo">
+                    <input type="text" name="bairro" value="{{ $dadosEmpresa->bairro }}" required>
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Cep</label>
+                <div class="campo">
+                    <input type="text" name="cep" min="0" max="99999999" value="{{ $dadosEmpresa->cep }}" required>
+                </div>
+            </div><br>
+
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Cidade</label>
+                <div class="campo">
+                    <input type="text" name="cidade" value="{{ $dadosEmpresa->cidade }}" required>
+                </div>
+            </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_4">Estado</label>
+                <div class="campo">
+                    <input type="text" name="estado" value="{{ $dadosEmpresa->estado }}" required>
+                </div>
+            </div><br>
+
             <input type="submit" class="card_acao col_10" value="Salvar Alteração"><br>
             <a href="/events/dadosEmpresaServico/{{ $dadosEmpresa->id }}" class="card_acao muted col_4">Informações de Serviço</a><br>
             <a href="/events/gerenciamento" class="card_acao muted col_4">Voltar</a>
