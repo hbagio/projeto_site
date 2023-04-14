@@ -52,7 +52,7 @@ class ProdutoController extends Controller
             ->Paginate(REGISTROS_POR_PAGINA);
 
         $categoria = Categoria::all();
-        //retorna para aviwe
+        //retorna para view
         return view('events.listarProduto', ['produtos' =>  $produtos, 'categorias' => $categoria]);
     }
 
