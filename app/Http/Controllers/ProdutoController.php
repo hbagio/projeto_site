@@ -12,7 +12,6 @@ const  REGISTROS_POR_PAGINA = 12;
 class ProdutoController extends Controller
 {
 
-
     public function index()
     {
         //pega os dados do model
@@ -26,14 +25,10 @@ class ProdutoController extends Controller
             //Executa com paginação
             ->Paginate(REGISTROS_POR_PAGINA);
 
-
-
         $categoria = Categoria::all();
-        //retorna para aviwe
+        //retorna para view
         return view('welcome', ['produtos' =>  $produtos, 'categorias' => $categoria]);
     }
-
-
 
     public function cadastroProduto()
     {
@@ -42,9 +37,9 @@ class ProdutoController extends Controller
         return view('events.cadastroProduto', ['categorias' => $categoria]);
     }
 
+
     public function listarProduto()
     {
-        //pega os dados do model
         //pega os dados do model
         $produtos  = DB::table('produtos')
             //Campos de deseja
@@ -77,8 +72,6 @@ class ProdutoController extends Controller
         $produto->destaque = $request->destaque;
         $produto->idcategoria = $request->categoria;
 
-
-        //Upload controle
         //Verifica se tem uma imagem da requisição e se ela é valida
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             $requestImage = $request->imagem;
@@ -92,6 +85,7 @@ class ProdutoController extends Controller
 
         return redirect('events/listarProduto')->with('msg', 'Produto Cadastrado com Sucesso!');
     }
+
 
     public function getDadosProduto($id)
     {
@@ -112,6 +106,7 @@ class ProdutoController extends Controller
             'urlContato' => $url
         );
     }
+
 
     public function buscaComCategoria(Request $request)
     {
@@ -159,9 +154,9 @@ class ProdutoController extends Controller
 
         $categoria = Categoria::all();
 
-
         return view('welcome', ['produtos' => $produtos, 'categorias' => $categoria]);
     }
+
 
     public function destroy($id)
     {
@@ -180,6 +175,7 @@ class ProdutoController extends Controller
 
         return view('events/alterarProduto', ['produto' => $produto, 'categoria' => $categoria]);
     }
+
 
     public function update(Request $request)
     {
@@ -212,10 +208,7 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-
-
         $produtos = Produto::Paginate(REGISTROS_POR_PAGINA);
-        //retorna para aviwe
         return redirect('/events/listarProduto');
     }
 }
