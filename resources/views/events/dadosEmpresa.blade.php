@@ -7,11 +7,19 @@
             <form class="card flex_col" action="/events/dadosEmpresa/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="container_campo col_10">
+                    <label class="campo_label col_4">Incrição Municipal</label>
+                    <div class="campo">
+                        <input type="text" name="incricaomunicipal" placeholder="cnpj da empresa" required>
+                    </div>
+                </div>
+                <br>
+                <div class="container_campo col_10">
                     <label class="campo_label col_4">CNPJ</label>
                     <div class="campo">
                         <input type="text" name="cnpj" placeholder="cnpj da empresa" required>
                     </div>
-                </div><br>
+                </div>
+                <br>
                 <div class="container_campo col_10">
                     <label class="campo_label col_4">Razão Social</label>
                     <div class="campo">
@@ -58,7 +66,7 @@
                 <div class="container_campo col_10">
                     <label class="campo_label col_4">Compemento</label>
                     <div class="campo">
-                        <input type="text" name="complemento" placeholder="Complemento empresa" required>
+                        <input type="text" name="complemento" placeholder="Complemento empresa" >
                     </div>
                 </div><br>
                 <div class="container_campo col_10">
@@ -90,6 +98,16 @@
                     <label class="campo_label col_4">Estado</label>
                     <div class="campo">
                         <input type="text" name="estado" placeholder="Estado empresa" required>
+                    </div>
+                </div><br>
+                <div class="container_campo col_10">
+                    <label class="campo_label col_3">Código IBGE</label>
+                    <div class="campo">
+                        <input type="numeric" name="cidcodigoibge" placeholder="Código Cidade IBGE" required>
+                    </div>
+                    <label class="campo_label col_3">Código Receita Federal</label>
+                    <div class="campo">
+                        <input type="numeric" name="cidcodigoreceitafederal" placeholder="Código Cidade Receita Federal" required>
                     </div>
                 </div><br>
 

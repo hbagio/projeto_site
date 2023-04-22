@@ -89,6 +89,7 @@ function rotasMenuGerenciamento()
     rotasEmpresa();
     rotasUsuario();
     rotasPessoa();
+    rotasEmpresa();
 }
 
 /**
@@ -136,6 +137,14 @@ function rotasEmpresa()
     Route::get('/events/cadastrarDadosEmpresaServico/{idempresa}', [InformacoesprestacaoservicoController::class, 'cadastrarDadosEmpresaServico'])->name('gerenciamento.empresa.servico.cadastrar');
     Route::post('/events/cadastrarDadosEmpresaServico/store', [InformacoesprestacaoservicoController::class, 'store'])->name('gerenciamento.empresa.servico.insere');
     Route::get('/events/cadastrarDadosEmpresaServico/delete/{id}/{idempresa}', [InformacoesprestacaoservicoController::class, 'destroy'])->name('gerenciamento.empresa.servico.delete');
+}
+
+/**
+ * Rota(s) de Nota Fiscal Eletronica.
+ */
+function rotasNotaFiscal(){
+    Route::get('/events/consultaNotaFiscal');
+
 }
 
 /**

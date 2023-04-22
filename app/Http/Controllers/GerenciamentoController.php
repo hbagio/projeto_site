@@ -24,22 +24,20 @@ class GerenciamentoController extends Controller
 
             return view('events.dadosEmpresaAlteracao', ['dadosEmpresa' => $dadosEmpresa]);
         }
+
         return view('events.dadosEmpresa');
     }
 
     public function sobre()
     {
         $retorno = \DB::select('select count(1) as contador from informacoes ');
-        $dadosEmpresa = $this->buscaDadosEmpresa();
 
         if ($retorno[0]->contador >= 1) {
+            $dadosEmpresa = $this->buscaDadosEmpresa();
             $url = $this->urlContato('whatsapp');
             return view('events.sobre', ['dadosEmpresa' => $dadosEmpresa, 'whatsapp' => $url]);
         } else {
-            $produtos = Produto::all();
-            $categoria = Categoria::all();
-            //retorna para aviwe
-            return view('welcome', ['produtos' =>  $produtos, 'categorias' => $categoria]);
+            return redirect()->back()->with('msg', 'Sem Informações Cadastradas!');
         }
     }
 
@@ -61,6 +59,9 @@ class GerenciamentoController extends Controller
         $dadosEmpresa->cidade = $request->cidade;
         $dadosEmpresa->cep = $request->cep;
         $dadosEmpresa->estado = $request->estado;
+        $dadosEmpresa->cidcodigoibge = $request->cidcodigoibge;
+        $dadosEmpresa->cidcodigoreceitafederal = $request->cidcodigoreceitafederal;
+        $dadosEmpresa->incricaomunicipal = $request->incricaomunicipal;
 
         $dadosEmpresa->save();
 
@@ -85,6 +86,9 @@ class GerenciamentoController extends Controller
         $dadosEmpresa->cidade = $request->cidade;
         $dadosEmpresa->cep = $request->cep;
         $dadosEmpresa->estado = $request->estado;
+        $dadosEmpresa->cidcodigoibge = $request->cidcodigoibge;
+        $dadosEmpresa->cidcodigoreceitafederal = $request->cidcodigoreceitafederal;
+        $dadosEmpresa->incricaomunicipal = $request->incricaomunicipal;
 
         $dadosEmpresa->save();
 

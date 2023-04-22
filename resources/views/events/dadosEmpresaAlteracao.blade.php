@@ -13,6 +13,13 @@
                 </div>
             </div><br>
             <div class="container_campo col_10">
+                <label class="campo_label col_4">Incrição Municipal</label>
+                <div class="campo">
+                    <input type="text" name="incricaomunicipal" value="{{ $dadosEmpresa->incricaomunicipal }}" required>
+                </div>
+            </div>
+            <br>
+            <div class="container_campo col_10">
                 <label class="campo_label col_4">CNPJ</label>
                 <div class="campo">
                     <input type="text" name="cnpj" value="{{ $dadosEmpresa->cnpj }}" placeholder="Número do Cnpj" required>
@@ -98,11 +105,21 @@
                     <input type="text" name="estado" value="{{ $dadosEmpresa->estado }}" required>
                 </div>
             </div><br>
+            <div class="container_campo col_10">
+                <label class="campo_label col_3">Código IBGE</label>
+                <div class="campo">
+                    <input type="numeric" name="cidcodigoibge" value="{{ $dadosEmpresa->cidcodigoibge }}" required>
+                </div>
+                <label class="campo_label col_3">Código Receita Federal</label>
+                <div class="campo">
+                    <input type="numeric" name="cidcodigoreceitafederal" value="{{ $dadosEmpresa->cidcodigoreceitafederal }}" required>
+                </div>
+            </div><br>
 
             <input type="submit" class="card_acao col_10" value="Salvar Alteração"><br>
             <a href="/events/dadosEmpresaServico/{{ $dadosEmpresa->id }}" class="card_acao muted col_4">Informações de Serviço</a><br>
             <a href="/events/gerenciamento" class="card_acao muted col_4">Voltar</a>
-           
+
         </form>
     </div>
 </section>
