@@ -19,15 +19,28 @@ return new class extends Migration
             $table->unsignedBigInteger('idempresa');
             $table->unsignedBigInteger('idtomador');
             $table->smallInteger('serie');
-            $table->unsignedBigInteger('listaservico');
-            $table->float('valorservico');
+            $table->smallInteger('cidcodigoprestacao');
+            $table->smallInteger('cidcodigoincidencia');
+            $table->integer('listaservico');
+            $table->float('valorservico',15,2);
+            $table->float('aliquota',3,2);
+            $table->date('nfedataemissao');
+            $table->date('nfedatafatogerador');
+            $table->string('nfeidentificador',50);
+            $table->smallInteger('nfesituacao');
+            $table->smallInteger('situacaotributaria');
             $table->string('descricaoservico');
-
-
-
+            $table->float('valordeducao',15,2);
+            $table->float('valordesconto',15,2);
+            $table->float('valorir',15,2);
+            $table->float('valorpis',15,2);
+            $table->float('valorcofins',15,2);
+            $table->float('valorinss',15,2);
+            $table->float('valorcontribsocial',15,2);
+            $table->float('valoroutrasretencoes',15,2);
+            $table->text('outrasinformacoes');
             $table->foreign('idempresa')->references('id')->on('informacoes');
             $table->foreign('idtomador')->references('id')->on('pessoas');
-            $table->foreign('listaservico')->references('listaservico')->on('informacoesprestacaoservicos');
         });
     }
 
@@ -39,5 +52,7 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('tbnotafiscaleletronica');
+        
+
     }
 };

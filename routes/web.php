@@ -7,6 +7,8 @@ use App\Http\Controllers\GerenciamentoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\InformacoesprestacaoservicoController;
+use App\Http\Controllers\TbnotafiscaleletronicaController;
+use App\Models\tbnotafiscaleletronica;
 use GuzzleHttp\Middleware;
 
 rotasMenuHome();
@@ -90,6 +92,7 @@ function rotasMenuGerenciamento()
     rotasUsuario();
     rotasPessoa();
     rotasEmpresa();
+    rotasNotaFiscal();
 }
 
 /**
@@ -143,7 +146,7 @@ function rotasEmpresa()
  * Rota(s) de Nota Fiscal Eletronica.
  */
 function rotasNotaFiscal(){
-    Route::get('/events/consultaNotaFiscal');
+    Route::get('/events/consultaNotaFiscal',[TbnotafiscaleletronicaController::class,'consultaNotaFiscal'])->name('notafiscal.consulta');
 
 }
 
