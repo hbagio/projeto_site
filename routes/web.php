@@ -147,6 +147,8 @@ function rotasEmpresa()
  */
 function rotasNotaFiscal(){
     Route::get('/events/consultaNotaFiscal',[TbnotafiscaleletronicaController::class,'consultaNotaFiscal'])->name('notafiscal.consulta');
+    Route::get('/events/emitirNfse',[TbnotafiscaleletronicaController::class,'emitirNfse'])->name('notafiscal.emitir');
+
 
 }
 
