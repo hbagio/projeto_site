@@ -23,7 +23,9 @@ class PessoaController extends Controller
         return view('events.cadastroPessoa');
     }
 
-
+    public function alterarPessoa(Request $request){
+        
+    }
 
     public function incluirPessoas(Request $request)
     {
